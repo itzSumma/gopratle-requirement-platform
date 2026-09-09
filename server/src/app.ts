@@ -1,18 +1,20 @@
-import express, { Application, Request, Response } from 'express';
-import cors from 'cors';
+import express, { Application, Request, Response } from "express";
+import cors from "cors";
+import { requirementRoutes } from "./modules/requirement/requirement.route.js";
 
 const app: Application = express();
 
-// Middlewares
-app.use(cors());
+// Parsers
 app.use(express.json());
+app.use(cors());
 
-// Health check route
-app.get('/api/health', (req: Request, res: Response) => {
+// Application routes
+app.use("/api/requirements", requirementRoutes);
+
+// Root test route
+app.get("/", (_req: Request, res: Response) => {
   res.status(200).json({
-    status: 'ok',
-    message: 'Server is healthy',
-  });
+     message: "GoPratle Server is running" });
 });
 
 export default app;
