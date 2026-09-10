@@ -4,7 +4,7 @@ import React from "react";
 import { Logo } from "../components/ui/logo";
 import { RequirementForm } from "../components/requirement/RequirementForm";
 
-// High-Definition Ultra Sharp URLs (w=1200 for pixel-perfect retina rendering)
+// Image Urls for the 4 photos on the left side of the landing page
 const EVENT_IMAGES = [
   {
     url: "https://images.pexels.com/photos/36184378/pexels-photo-36184378.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -99,9 +99,9 @@ const OFFICIAL_PILLARS = [
 export default function Home() {
   return (
     <main className="min-h-screen lg:h-screen w-full bg-[#FFFBF8] flex items-center justify-center p-2 sm:p-4 overflow-y-auto lg:overflow-hidden font-sans">
-      {/* 50/50 Equal Ratio Card Container */}
+      
       <div className="w-full max-w-5xl bg-white rounded-3xl shadow-sm border border-orange-100/70 overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-stretch max-h-none lg:max-h-[96vh]">
-        {/* Left Side: Centered content, zero clipping, larger responsive typography */}
+        
         <div className="bg-[#FFF7F2] px-5 sm:px-6 lg:px-7 py-5 sm:py-6 flex flex-col justify-center gap-3 lg:gap-3.5 border-b lg:border-b-0 lg:border-r border-orange-100/70 overflow-hidden">
           {/* Logo & Headline */}
           <div className="shrink-0">

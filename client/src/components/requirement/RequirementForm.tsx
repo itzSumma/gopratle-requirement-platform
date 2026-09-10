@@ -1,7 +1,10 @@
+
 'use client';
 
 import React, { useState } from 'react';
+
 import { CheckCircle2 } from 'lucide-react';
+
 import { ZodError } from 'zod';
 
 import { StepIndicator } from './StepIndicator';
@@ -9,10 +12,12 @@ import { StepOne } from './StepOne';
 import { StepTwo } from './StepTwo';
 import { StepThree } from './StepThree';
 import { ReviewStep } from './ReviewStep';
+
 import {
   RequirementFormData,
   RequirementCategory,
 } from '../../types/requirement';
+
 import {
   stepOneSchema,
   performerDetailsSchema,
@@ -22,8 +27,10 @@ import {
   plannerLogisticsSchema,
   crewLogisticsSchema,
 } from '../../validations/requirement';
+
 import { createRequirement } from '../../lib/api';
 
+// Default form state used when the form is first opened or reset.
 const INITIAL_DATA: RequirementFormData = {
   eventDetails: {
     eventName: '',
@@ -33,12 +40,15 @@ const INITIAL_DATA: RequirementFormData = {
     location: '',
     venue: '',
   },
+
   category: 'PERFORMER',
+
   categoryDetails: {
     performanceType: '',
     duration: '',
     numberOfPerformers: 1,
   },
+
   logisticsDetails: {
     soundEquipment: [],
     stageRequirements: '',
@@ -69,6 +79,7 @@ export const RequirementForm: React.FC = () => {
     let initialCategoryDetails: RequirementFormData['categoryDetails'];
     let initialLogisticsDetails: RequirementFormData['logisticsDetails'];
 
+    // Reset category-specific fields when the user changes the professional category.
     if (category === 'PERFORMER') {
       initialCategoryDetails = {
         performanceType: '',
@@ -122,6 +133,7 @@ export const RequirementForm: React.FC = () => {
 
   const validateCurrentStep = (): boolean => {
     try {
+      // Each step uses its own schema so only the visible step is validated.
       if (currentStep === 1) {
         stepOneSchema.parse({
           eventDetails: formData.eventDetails,
@@ -183,7 +195,9 @@ export const RequirementForm: React.FC = () => {
     setApiError('');
 
     try {
+      // Submit the complete validated requirement to the backend API.
       await createRequirement(formData);
+
       setIsSubmitted(true);
     } catch (error) {
       const message =
@@ -281,3 +295,4 @@ export const RequirementForm: React.FC = () => {
     </div>
   );
 };
+

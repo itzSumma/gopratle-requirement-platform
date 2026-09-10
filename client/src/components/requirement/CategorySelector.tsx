@@ -1,7 +1,10 @@
+
 'use client';
 
 import React from 'react';
+
 import { RequirementCategory } from '../../types/requirement';
+
 import { CalendarCheck2, Mic2, Wrench } from 'lucide-react';
 
 interface CategorySelectorProps {
@@ -9,6 +12,7 @@ interface CategorySelectorProps {
   onSelect: (category: RequirementCategory) => void;
 }
 
+// Available event professional categories shown in the requirement form.
 const CATEGORIES: {
   id: RequirementCategory;
   title: string;
@@ -60,6 +64,7 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({
   return (
     <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
       {CATEGORIES.map((cat) => {
+        // Check whether the current category is selected.
         const isSelected = selectedCategory === cat.id;
 
         return (
@@ -92,6 +97,7 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({
               >
                 {cat.title}
               </p>
+
               <p className="text-[11px] text-[#555A64] mt-0.5 leading-snug">
                 {cat.desc}
               </p>
@@ -102,3 +108,4 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({
     </div>
   );
 };
+
