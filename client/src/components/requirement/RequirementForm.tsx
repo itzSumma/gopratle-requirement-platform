@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -46,14 +45,14 @@ const INITIAL_DATA: RequirementFormData = {
   categoryDetails: {
     performanceType: '',
     duration: '',
-    numberOfPerformers: 1,
+    numberOfPerformers: '' as unknown as number,
   },
 
   logisticsDetails: {
     soundEquipment: [],
     stageRequirements: '',
     technicalRequirements: '',
-    budget: 0,
+    budget: '' as unknown as number,
   },
 };
 
@@ -84,31 +83,31 @@ export const RequirementForm: React.FC = () => {
       initialCategoryDetails = {
         performanceType: '',
         duration: '',
-        numberOfPerformers: 1,
+        numberOfPerformers: '' as unknown as number,
       };
 
       initialLogisticsDetails = {
         soundEquipment: [],
         stageRequirements: '',
         technicalRequirements: '',
-        budget: 0,
+        budget: '' as unknown as number,
       };
     } else if (category === 'EVENT_PLANNER') {
       initialCategoryDetails = {
         serviceType: '',
-        expectedGuests: 1,
+        expectedGuests: '' as unknown as number,
         planningRequirements: '',
       };
 
       initialLogisticsDetails = {
         servicesNeeded: [],
-        budget: 0,
+        budget: '' as unknown as number,
         additionalRequirements: '',
       };
     } else {
       initialCategoryDetails = {
         crewType: '',
-        numberOfCrew: 1,
+        numberOfCrew: '' as unknown as number,
         skillRequirement: '',
       };
 
@@ -116,7 +115,7 @@ export const RequirementForm: React.FC = () => {
         workDuration: '',
         shiftTiming: '',
         equipmentRequirement: '',
-        budget: 0,
+        budget: '' as unknown as number,
         additionalRequirements: '',
       };
     }
@@ -295,4 +294,3 @@ export const RequirementForm: React.FC = () => {
     </div>
   );
 };
-

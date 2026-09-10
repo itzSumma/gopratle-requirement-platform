@@ -58,7 +58,7 @@ export const StepTwo: React.FC<StepTwoProps> = ({
               </label>
               <input
                 type="text"
-                placeholder="e.g. Band, Solo Singer, DJ, Stand-up Comedian"
+                placeholder="Band, Solo Singer, DJ, Stand-up Comedian"
                 value={(categoryDetails as PerformerDetails)?.performanceType || ''}
                 onChange={(e) => handleFieldChange('performanceType', e.target.value)}
                 className="w-full px-3 py-1.5 sm:py-2 rounded-xl border border-[#fc6f47]/50 focus:border-[#fc6f47] focus:ring-2 focus:ring-[#ffe9e0] outline-none transition bg-white text-xs sm:text-sm text-[#1E2024] placeholder:text-zinc-400 shadow-2xs"

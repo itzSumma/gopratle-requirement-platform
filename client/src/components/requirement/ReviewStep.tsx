@@ -6,8 +6,10 @@ import {
   RequirementFormData,
   PerformerDetails,
   PlannerDetails,
-  CrewDetails
-  
+  CrewDetails,
+  PerformerLogistics,
+  PlannerLogistics,
+  CrewLogistics,
 } from "../../types/requirement";
 
 import { ArrowLeft, Loader2, Send } from "lucide-react";
@@ -25,7 +27,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
   onSubmit,
   isSubmitting,
 }) => {
-  const { eventDetails, category, categoryDetails } =
+  const { eventDetails, category, categoryDetails, logisticsDetails } =
     formData;
 
   // Convert the internal category value into a user-friendly label.
@@ -193,7 +195,91 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
-            {/* Keep the existing Performer / Event Planner / Crew JSX here unchanged. */}
+            <div>
+              <span className="text-[#555A64]">Estimated Budget:</span>{" "}
+              <span className="font-semibold text-[#1E2024]">
+                {logisticsDetails?.budget ? `${logisticsDetails.budget}` : "Not specified"}
+              </span>
+            </div>
+
+            {category === "PERFORMER" && (
+              <>
+                <div>
+                  <span className="text-[#555A64]">Sound Equipment:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as PerformerLogistics)?.soundEquipment?.length
+                      ? (logisticsDetails as PerformerLogistics).soundEquipment.join(", ")
+                      : "None"}
+                  </span>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <span className="text-[#555A64]">Stage Requirements:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as PerformerLogistics)?.stageRequirements || "None"}
+                  </span>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <span className="text-[#555A64]">Technical Requirements:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as PerformerLogistics)?.technicalRequirements || "None"}
+                  </span>
+                </div>
+              </>
+            )}
+
+            {category === "EVENT_PLANNER" && (
+              <>
+                <div>
+                  <span className="text-[#555A64]">Services Needed:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as PlannerLogistics)?.servicesNeeded?.length
+                      ? (logisticsDetails as PlannerLogistics).servicesNeeded.join(", ")
+                      : "None"}
+                  </span>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <span className="text-[#555A64]">Additional Requirements:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as PlannerLogistics)?.additionalRequirements || "None"}
+                  </span>
+                </div>
+              </>
+            )}
+
+            {category === "CREW" && (
+              <>
+                <div>
+                  <span className="text-[#555A64]">Work Duration:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as CrewLogistics)?.workDuration || "None"}
+                  </span>
+                </div>
+
+                <div>
+                  <span className="text-[#555A64]">Shift Timing:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as CrewLogistics)?.shiftTiming || "None"}
+                  </span>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <span className="text-[#555A64]">Equipment Requirement:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as CrewLogistics)?.equipmentRequirement || "None"}
+                  </span>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <span className="text-[#555A64]">Additional Requirements:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
+                    {(logisticsDetails as CrewLogistics)?.additionalRequirements || "None"}
+                  </span>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
