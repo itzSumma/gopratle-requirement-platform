@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -200,16 +199,16 @@ export const RequirementForm: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <div className="max-w-xl mx-auto my-12 p-8 bg-white rounded-xl shadow-sm border border-zinc-200 text-center">
-        <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="w-full max-w-lg mx-auto py-10 px-6 bg-[#FFFBF8] border border-orange-100/80 rounded-2xl text-center shadow-xs">
+        <div className="w-16 h-16 bg-[#ffe9e0] text-[#fa5d32] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#fa5d32]/20">
           <CheckCircle2 className="w-10 h-10" />
         </div>
 
-        <h2 className="text-2xl font-bold text-zinc-900 mb-2">
+        <h2 className="text-2xl font-bold text-[#1E2024] mb-2 tracking-tight">
           Requirement Submitted!
         </h2>
 
-        <p className="text-zinc-600 mb-6">
+        <p className="text-[#555A64] text-sm mb-6 leading-relaxed">
           Your event requirement has been successfully submitted and saved.
         </p>
 
@@ -221,7 +220,7 @@ export const RequirementForm: React.FC = () => {
             setApiError('');
             setIsSubmitted(false);
           }}
-          className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          className="px-6 py-2.5 bg-[#fa5d32] text-white font-medium rounded-xl hover:bg-[#e65027] transition-all shadow-sm active:scale-95 cursor-pointer"
         >
           Post Another Requirement
         </button>
@@ -230,54 +229,55 @@ export const RequirementForm: React.FC = () => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto my-8 p-6 bg-white rounded-xl shadow-sm border border-zinc-200">
+    <div className="w-full flex flex-col justify-start">
       <StepIndicator currentStep={currentStep} />
 
       {apiError && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-xs sm:text-sm">
           {apiError}
         </div>
       )}
 
-      {currentStep === 1 && (
-        <StepOne
-          formData={formData}
-          updateFormData={updateFormData}
-          handleCategoryChange={handleCategoryChange}
-          errors={errors}
-          onNext={handleNext}
-        />
-      )}
+      <div className="w-full">
+        {currentStep === 1 && (
+          <StepOne
+            formData={formData}
+            updateFormData={updateFormData}
+            handleCategoryChange={handleCategoryChange}
+            errors={errors}
+            onNext={handleNext}
+          />
+        )}
 
-      {currentStep === 2 && (
-        <StepTwo
-          formData={formData}
-          updateFormData={updateFormData}
-          errors={errors}
-          onNext={handleNext}
-          onBack={handleBack}
-        />
-      )}
+        {currentStep === 2 && (
+          <StepTwo
+            formData={formData}
+            updateFormData={updateFormData}
+            errors={errors}
+            onNext={handleNext}
+            onBack={handleBack}
+          />
+        )}
 
-      {currentStep === 3 && (
-        <StepThree
-          formData={formData}
-          updateFormData={updateFormData}
-          errors={errors}
-          onNext={handleNext}
-          onBack={handleBack}
-        />
-      )}
+        {currentStep === 3 && (
+          <StepThree
+            formData={formData}
+            updateFormData={updateFormData}
+            errors={errors}
+            onNext={handleNext}
+            onBack={handleBack}
+          />
+        )}
 
-      {currentStep === 4 && (
-        <ReviewStep
-          formData={formData}
-          onBack={handleBack}
-          onSubmit={handleSubmit}
-          isSubmitting={isSubmitting}
-        />
-      )}
+        {currentStep === 4 && (
+          <ReviewStep
+            formData={formData}
+            onBack={handleBack}
+            onSubmit={handleSubmit}
+            isSubmitting={isSubmitting}
+          />
+        )}
+      </div>
     </div>
   );
 };
-

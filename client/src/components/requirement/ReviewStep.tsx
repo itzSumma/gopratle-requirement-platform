@@ -36,43 +36,44 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
   };
 
   return (
-    <div className="space-y-6">
-      <div className="border-b border-zinc-200 pb-4">
-        <h3 className="text-xl font-bold text-zinc-900">Review Requirement</h3>
-        <p className="text-sm text-zinc-500 mt-1">
-          Please verify all details carefully before submitting your
-          requirement.
+    <div className="space-y-4 sm:space-y-5">
+      <div className="border-b border-orange-100/80 pb-3">
+        <h3 className="text-lg sm:text-xl font-bold text-[#1E2024] tracking-tight">
+          Review Requirement
+        </h3>
+        <p className="text-xs sm:text-[13px] text-[#555A64] mt-0.5">
+          Please verify all details carefully before submitting your requirement.
         </p>
       </div>
 
-      <div className="space-y-5 text-sm">
+      <div className="space-y-3 sm:space-y-3.5 text-xs sm:text-sm">
         {/* Section 1: Event Details */}
-        <div className="bg-zinc-50 p-4 rounded-xl border border-zinc-200">
-          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-3">
+        <div className="bg-[#FFFBF8] p-3.5 sm:p-4 rounded-2xl border border-orange-100/80 shadow-xs">
+          <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2.5">
             Event Details
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
             <div>
-              <span className="text-zinc-500">Event Name:</span>{" "}
-              <span className="font-medium text-zinc-900">
+              <span className="text-[#555A64]">Event Name:</span>{" "}
+              <span className="font-semibold text-[#1E2024]">
                 {eventDetails.eventName}
               </span>
             </div>
             <div>
-              <span className="text-zinc-500">Event Type:</span>{" "}
-              <span className="font-medium text-zinc-900">
+              <span className="text-[#555A64]">Event Type:</span>{" "}
+              <span className="font-semibold text-[#1E2024]">
                 {eventDetails.eventType}
               </span>
             </div>
             <div>
-              <span className="text-zinc-500">Schedule:</span>{" "}
-              <span className="font-medium text-zinc-900">
+              <span className="text-[#555A64]">Schedule:</span>{" "}
+              <span className="font-semibold text-[#1E2024]">
                 {eventDetails.startDate} to {eventDetails.endDate}
               </span>
             </div>
             <div>
-              <span className="text-zinc-500">Location:</span>{" "}
-              <span className="font-medium text-zinc-900">
+              <span className="text-[#555A64]">Location:</span>{" "}
+              <span className="font-semibold text-[#1E2024]">
                 {eventDetails.location}
                 {eventDetails.venue ? ` (${eventDetails.venue})` : ""}
               </span>
@@ -81,38 +82,40 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
         </div>
 
         {/* Section 2: Selected Category */}
-        <div className="bg-zinc-50 p-4 rounded-xl border border-zinc-200">
-          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">
-            Requested Role
-          </p>
-          <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full font-semibold text-xs">
-            {getCategoryLabel()}
-          </span>
+        <div className="bg-[#FFFBF8] p-3.5 sm:p-4 rounded-2xl border border-orange-100/80 shadow-xs flex items-center justify-between">
+          <div>
+            <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#8E95A2] mb-1">
+              Requested Role
+            </p>
+            <span className="inline-block px-3 py-1 bg-[#ffe9e0] text-[#fa5d32] border border-[#fa5d32]/20 rounded-full font-bold text-xs">
+              {getCategoryLabel()}
+            </span>
+          </div>
         </div>
 
         {/* Section 3: Role Specific Details */}
-        <div className="bg-zinc-50 p-4 rounded-xl border border-zinc-200">
-          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-3">
+        <div className="bg-[#FFFBF8] p-3.5 sm:p-4 rounded-2xl border border-orange-100/80 shadow-xs">
+          <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2.5">
             {getCategoryLabel()} Details
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
             {category === "PERFORMER" && (
               <>
                 <div>
-                  <span className="text-zinc-500">Performance Type:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Performance Type:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as PerformerDetails).performanceType}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Duration:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Duration:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as PerformerDetails).duration}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Performers Count:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Performers Count:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as PerformerDetails).numberOfPerformers}
                   </span>
                 </div>
@@ -122,20 +125,20 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
             {category === "EVENT_PLANNER" && (
               <>
                 <div>
-                  <span className="text-zinc-500">Service Type:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Service Type:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as PlannerDetails).serviceType}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Expected Guests:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Expected Guests:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as PlannerDetails).expectedGuests}
                   </span>
                 </div>
                 <div className="sm:col-span-2">
-                  <span className="text-zinc-500">Requirements:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Requirements:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as PlannerDetails).planningRequirements}
                   </span>
                 </div>
@@ -145,20 +148,20 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
             {category === "CREW" && (
               <>
                 <div>
-                  <span className="text-zinc-500">Crew Type:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Crew Type:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as CrewDetails).crewType}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Team Size:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Team Size:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as CrewDetails).numberOfCrew}
                   </span>
                 </div>
                 <div className="sm:col-span-2">
-                  <span className="text-zinc-500">Skill / Experience:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Skill / Experience:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(categoryDetails as CrewDetails).skillRequirement}
                   </span>
                 </div>
@@ -168,32 +171,32 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
         </div>
 
         {/* Section 4: Logistics & Budget */}
-        <div className="bg-zinc-50 p-4 rounded-xl border border-zinc-200">
-          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-3">
+        <div className="bg-[#FFFBF8] p-3.5 sm:p-4 rounded-2xl border border-orange-100/80 shadow-xs">
+          <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2.5">
             Logistics & Budget
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
             {category === "PERFORMER" && (
               <>
                 <div className="sm:col-span-2">
-                  <span className="text-zinc-500">
+                  <span className="text-[#555A64]">
                     Required Sound/Lighting:
                   </span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="font-semibold text-[#1E2024]">
                     {(
                       logisticsDetails as PerformerLogistics
                     ).soundEquipment?.join(", ") || "None"}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Stage Setup:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Stage Setup:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(logisticsDetails as PerformerLogistics).stageRequirements}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Budget:</span>{" "}
-                  <span className="font-semibold text-emerald-700">
+                  <span className="text-[#555A64]">Budget:</span>{" "}
+                  <span className="font-bold text-[#fa5d32]">
                     ৳
                     {(
                       logisticsDetails as PerformerLogistics
@@ -206,16 +209,16 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
             {category === "EVENT_PLANNER" && (
               <>
                 <div className="sm:col-span-2">
-                  <span className="text-zinc-500">Services Needed:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Services Needed:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(
                       logisticsDetails as PlannerLogistics
                     ).servicesNeeded?.join(", ") || "None"}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Budget:</span>{" "}
-                  <span className="font-semibold text-emerald-700">
+                  <span className="text-[#555A64]">Budget:</span>{" "}
+                  <span className="font-bold text-[#fa5d32]">
                     ৳
                     {(
                       logisticsDetails as PlannerLogistics
@@ -228,26 +231,26 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
             {category === "CREW" && (
               <>
                 <div>
-                  <span className="text-zinc-500">Shift Duration:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Shift Duration:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(logisticsDetails as CrewLogistics).workDuration}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Shift Timing:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Shift Timing:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(logisticsDetails as CrewLogistics).shiftTiming}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Equipment Handling:</span>{" "}
-                  <span className="font-medium text-zinc-900">
+                  <span className="text-[#555A64]">Equipment Handling:</span>{" "}
+                  <span className="font-semibold text-[#1E2024]">
                     {(logisticsDetails as CrewLogistics).equipmentRequirement}
                   </span>
                 </div>
                 <div>
-                  <span className="text-zinc-500">Budget:</span>{" "}
-                  <span className="font-semibold text-emerald-700">
+                  <span className="text-[#555A64]">Budget:</span>{" "}
+                  <span className="font-bold text-[#fa5d32]">
                     ৳
                     {(
                       logisticsDetails as CrewLogistics
@@ -261,12 +264,12 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex justify-between pt-4 border-t border-zinc-100">
+      <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-orange-100/80">
         <button
           type="button"
           onClick={onBack}
           disabled={isSubmitting}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-zinc-300 text-zinc-700 font-medium text-sm hover:bg-zinc-50 transition disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-orange-200 text-[#555A64] font-semibold text-xs sm:text-sm hover:bg-[#FFF7F2] hover:text-[#fa5d32] transition disabled:opacity-50 cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
@@ -276,7 +279,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
           type="button"
           onClick={onSubmit}
           disabled={isSubmitting}
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-sm hover:bg-emerald-700 transition disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl bg-[#fa5d32] text-white font-semibold text-xs sm:text-sm hover:bg-[#e65027] transition shadow-xs active:scale-95 disabled:opacity-50 cursor-pointer"
         >
           {isSubmitting ? (
             <>

@@ -18,7 +18,7 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({
   currentStep,
 }) => {
   return (
-    <div className="w-full max-w-2xl mx-auto mb-10">
+    <div className="w-full max-w-2xl mx-auto mb-6 sm:mb-8">
       <div className="flex items-center justify-between relative">
         {STEPS.map((item, idx) => {
           const isCompleted = currentStep > item.step;
@@ -28,27 +28,27 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({
             <React.Fragment key={item.step}>
               <div className="flex flex-col items-center relative z-10">
                 <div
-                  className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-200 ${
+                  className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-200 ${
                     isCompleted
-                      ? 'bg-emerald-600 text-white shadow-sm'
+                      ? 'bg-[#fa5d32] text-white shadow-xs border border-[#fc6f47]'
                       : isActive
-                      ? 'bg-blue-600 text-white ring-4 ring-blue-100 shadow-sm'
-                      : 'bg-zinc-100 text-zinc-400 border border-zinc-200'
+                      ? 'bg-[#fa5d32] text-white ring-4 ring-[#ffe9e0] shadow-xs border border-[#fc6f47]'
+                      : 'bg-[#FFFBF8] text-[#8E95A2] border border-[#fc6f47]/40'
                   }`}
                 >
                   {isCompleted ? (
-                    <Check className="w-4 h-4 stroke-[3]" />
+                    <Check className="w-4 h-4 stroke-[2.5]" />
                   ) : (
                     item.step
                   )}
                 </div>
 
-                <div className="text-center mt-2">
+                <div className="text-center mt-1.5 sm:mt-2">
                   <p
-                    className={`text-xs font-medium tracking-tight ${
+                    className={`text-[11px] sm:text-xs tracking-tight transition-colors ${
                       isActive || isCompleted
-                        ? 'text-zinc-900 font-semibold'
-                        : 'text-zinc-400'
+                        ? 'text-[#1E2024] font-bold'
+                        : 'text-[#8E95A2] font-medium'
                     }`}
                   >
                     {item.label}
@@ -58,10 +58,10 @@ export const StepIndicator: React.FC<StepIndicatorProps> = ({
 
               {idx < STEPS.length - 1 && (
                 <div
-                  className={`flex-1 h-0.5 mx-2 -mt-5 transition-colors duration-200 ${
+                  className={`flex-1 h-0.5 mx-1.5 sm:mx-2 -mt-5 transition-colors duration-200 ${
                     currentStep > item.step
-                      ? 'bg-emerald-600'
-                      : 'bg-zinc-200'
+                      ? 'bg-[#fa5d32]'
+                      : 'bg-[#fc6f47]/20'
                   }`}
                 />
               )}

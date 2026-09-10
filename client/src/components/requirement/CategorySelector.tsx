@@ -13,25 +13,43 @@ const CATEGORIES: {
   id: RequirementCategory;
   title: string;
   desc: string;
-  icon: React.ReactNode;
+  icon: (isSelected: boolean) => React.ReactNode;
 }[] = [
   {
     id: 'EVENT_PLANNER',
     title: 'Event Planner',
     desc: 'Plan and coordinate',
-    icon: <CalendarCheck2 className="w-6 h-6 text-blue-600" />,
+    icon: (isSelected) => (
+      <CalendarCheck2
+        className={`w-5 h-5 transition-colors ${
+          isSelected ? 'text-[#fa5d32]' : 'text-[#717784]'
+        }`}
+      />
+    ),
   },
   {
     id: 'PERFORMER',
     title: 'Performer',
     desc: 'Artist, band or DJ',
-    icon: <Mic2 className="w-6 h-6 text-indigo-600" />,
+    icon: (isSelected) => (
+      <Mic2
+        className={`w-5 h-5 transition-colors ${
+          isSelected ? 'text-[#fa5d32]' : 'text-[#717784]'
+        }`}
+      />
+    ),
   },
   {
     id: 'CREW',
     title: 'Crew',
     desc: 'Technical & support staff',
-    icon: <Wrench className="w-6 h-6 text-emerald-600" />,
+    icon: (isSelected) => (
+      <Wrench
+        className={`w-5 h-5 transition-colors ${
+          isSelected ? 'text-[#fa5d32]' : 'text-[#717784]'
+        }`}
+      />
+    ),
   },
 ];
 
@@ -40,7 +58,7 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({
   onSelect,
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
       {CATEGORIES.map((cat) => {
         const isSelected = selectedCategory === cat.id;
 
@@ -50,21 +68,31 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({
             type="button"
             onClick={() => onSelect(cat.id)}
             aria-pressed={isSelected}
-            className={`p-4 rounded-xl border text-left flex flex-col justify-between transition-all duration-150 ${
+            className={`p-3 sm:p-3.5 rounded-2xl border text-left flex flex-col justify-between transition-all duration-200 cursor-pointer ${
               isSelected
-                ? 'border-blue-600 bg-blue-50/50 ring-2 ring-blue-500/20'
-                : 'border-zinc-200 hover:border-zinc-300 bg-white'
+                ? 'border-[#fa5d32] bg-[#FFF7F2] ring-2 ring-[#fa5d32]/15 shadow-xs'
+                : 'border-orange-100/70 hover:border-orange-200 bg-white hover:bg-orange-50/20'
             }`}
           >
-            <div className="p-2 rounded-lg bg-zinc-100 w-fit mb-3">
-              {cat.icon}
+            <div
+              className={`p-2 rounded-xl w-fit mb-2.5 transition-colors ${
+                isSelected
+                  ? 'bg-[#FFEFE8] text-[#fa5d32]'
+                  : 'bg-[#FFFBF8] text-[#717784] border border-orange-100/60'
+              }`}
+            >
+              {cat.icon(isSelected)}
             </div>
 
             <div>
-              <p className="font-semibold text-zinc-900 text-sm">
+              <p
+                className={`font-semibold text-xs sm:text-sm tracking-tight ${
+                  isSelected ? 'text-[#fa5d32]' : 'text-[#1E2024]'
+                }`}
+              >
                 {cat.title}
               </p>
-              <p className="text-xs text-zinc-500 mt-0.5">
+              <p className="text-[11px] text-[#555A64] mt-0.5 leading-snug">
                 {cat.desc}
               </p>
             </div>
