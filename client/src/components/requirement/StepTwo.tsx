@@ -91,9 +91,13 @@ export const StepTwo: React.FC<StepTwoProps> = ({
               <input
                 type="number"
                 min="1"
-                value={(categoryDetails as PerformerDetails)?.numberOfPerformers || 1}
+                placeholder="e.g. 4"
+                value={(categoryDetails as PerformerDetails)?.numberOfPerformers ?? ''}
                 onChange={(e) =>
-                  handleFieldChange('numberOfPerformers', Number(e.target.value))
+                  handleFieldChange(
+                    'numberOfPerformers',
+                    e.target.value === '' ? '' : Number(e.target.value)
+                  )
                 }
                 className="w-full px-3 py-1.5 sm:py-2 rounded-xl border border-[#fc6f47]/50 focus:border-[#fc6f47] focus:ring-2 focus:ring-[#ffe9e0] outline-none transition bg-white text-xs sm:text-sm text-[#1E2024] placeholder:text-zinc-400 shadow-2xs"
               />
@@ -133,9 +137,12 @@ export const StepTwo: React.FC<StepTwoProps> = ({
                 type="number"
                 min="1"
                 placeholder="e.g. 250"
-                value={(categoryDetails as PlannerDetails)?.expectedGuests || 1}
+                value={(categoryDetails as PlannerDetails)?.expectedGuests ?? ''}
                 onChange={(e) =>
-                  handleFieldChange('expectedGuests', Number(e.target.value))
+                  handleFieldChange(
+                    'expectedGuests',
+                    e.target.value === '' ? '' : Number(e.target.value)
+                  )
                 }
                 className="w-full px-3 py-1.5 sm:py-2 rounded-xl border border-[#fc6f47]/50 focus:border-[#fc6f47] focus:ring-2 focus:ring-[#ffe9e0] outline-none transition bg-white text-xs sm:text-sm text-[#1E2024] placeholder:text-zinc-400 shadow-2xs"
               />
@@ -192,9 +199,13 @@ export const StepTwo: React.FC<StepTwoProps> = ({
               <input
                 type="number"
                 min="1"
-                value={(categoryDetails as CrewDetails)?.numberOfCrew || 1}
+                placeholder="e.g. 3"
+                value={(categoryDetails as CrewDetails)?.numberOfCrew ?? ''}
                 onChange={(e) =>
-                  handleFieldChange('numberOfCrew', Number(e.target.value))
+                  handleFieldChange(
+                    'numberOfCrew',
+                    e.target.value === '' ? '' : Number(e.target.value)
+                  )
                 }
                 className="w-full px-3 py-1.5 sm:py-2 rounded-xl border border-[#fc6f47]/50 focus:border-[#fc6f47] focus:ring-2 focus:ring-[#ffe9e0] outline-none transition bg-white text-xs sm:text-sm text-[#1E2024] placeholder:text-zinc-400 shadow-2xs"
               />
