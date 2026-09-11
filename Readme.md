@@ -289,14 +289,14 @@ The implementation intentionally avoids unnecessary production-level complexity 
 
 ## 🔗 Submission
 
-* **Live Frontend**: Add your deployed Vercel URL here
+* **Live Frontend**: https://gopratle-requirement-platform.vercel.app/
 * **GitHub Repository**: https://github.com/itzSumma/gopratle-requirement-platform
-* **Screen Recording**: Add your 5–7 minute recording link here
+* **Screen Recording**: https://drive.google.com/file/d/1Klu_Er0S8vJXD4ZLJZhwZ5uA_tvi6xls/view?usp=sharing
 
-The screen recording demonstrates:
-
-1. Complete 4-step requirement submission flow
-2. Dynamic category-based fields
-3. Form validation
-4. API request and response
-5. MongoDB data storage
+**Screen Demonstrated Highlights:**
+* **Multi-Step Form Flow**: Complete 4-step wizard (Event Basics → Dynamic Category Details → Logistics & Budget → Review & Submit).
+* **Dynamic Rendering**: Category-specific form fields (Event Planner / Performer / Crew).
+* **Client & Server Validation**: Input constraints and error handling.
+* **API Architecture**: `POST /api/requirements` request payload and `201 Created` lifecycle.
+* **Database Persistence**: Structured document storage verified in MongoDB Atlas.
+* **Codebase Walkthrough**: Modular full-stack layout across client components and backend layers.
