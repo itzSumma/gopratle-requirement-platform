@@ -40,26 +40,26 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
   };
 
   return (
-    <div className="space-y-4 sm:space-y-5">
-      <div className="border-b border-orange-100/80 pb-3">
-        <h3 className="text-lg sm:text-xl font-bold text-[#1E2024] tracking-tight">
-          Review Requirement
-        </h3>
+    <div className="flex flex-col h-full">
+      {/* Scrollable Content Container */}
+      <div className="space-y-3 sm:space-y-4 max-h-[58vh] sm:max-h-[62vh] overflow-y-auto pr-1.5 pb-2">
+        <div className="border-b border-orange-100/80 pb-2.5">
+          <h3 className="text-base sm:text-lg font-bold text-[#1E2024] tracking-tight">
+            Review Requirement
+          </h3>
 
-        <p className="text-xs sm:text-[13px] text-[#555A64] mt-0.5">
-          Please verify all details carefully before submitting your requirement.
-        </p>
-      </div>
+          <p className="text-[11.5px] sm:text-xs text-[#555A64] mt-0.5">
+            Please verify all details carefully before submitting your requirement.
+          </p>
+        </div>
 
-      <div className="space-y-3 sm:space-y-3.5 text-xs sm:text-sm">
-
-        {/* Event information entered in the first step. */}
-        <div className="bg-[#FFFBF8] p-3.5 sm:p-4 rounded-2xl border border-orange-100/80 shadow-xs">
-          <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2.5">
+        {/* Event information */}
+        <div className="bg-[#FFFBF8] p-3 sm:p-3.5 rounded-2xl border border-orange-100/80 shadow-xs">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2">
             Event Details
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-3 text-xs sm:text-[13px]">
             <div>
               <span className="text-[#555A64]">Event Name:</span>{" "}
               <span className="font-semibold text-[#1E2024]">
@@ -91,26 +91,26 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
           </div>
         </div>
 
-        {/* Selected professional category for this requirement. */}
-        <div className="bg-[#FFFBF8] p-3.5 sm:p-4 rounded-2xl border border-orange-100/80 shadow-xs flex items-center justify-between">
+        {/* Requested Role */}
+        <div className="bg-[#FFFBF8] p-3 sm:p-3.5 rounded-2xl border border-orange-100/80 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#8E95A2] mb-1">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-[#8E95A2] mb-1">
               Requested Role
             </p>
 
-            <span className="inline-block px-3 py-1 bg-[#ffe9e0] text-[#fa5d32] border border-[#fa5d32]/20 rounded-full font-bold text-xs">
+            <span className="inline-block px-2.5 py-0.5 bg-[#ffe9e0] text-[#fa5d32] border border-[#fa5d32]/20 rounded-full font-bold text-xs">
               {getCategoryLabel()}
             </span>
           </div>
         </div>
 
-        {/* Display fields based on the selected professional category. */}
-        <div className="bg-[#FFFBF8] p-3.5 sm:p-4 rounded-2xl border border-orange-100/80 shadow-xs">
-          <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2.5">
+        {/* Category Details */}
+        <div className="bg-[#FFFBF8] p-3 sm:p-3.5 rounded-2xl border border-orange-100/80 shadow-xs">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2">
             {getCategoryLabel()} Details
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-3 text-xs sm:text-[13px]">
             {category === "PERFORMER" && (
               <>
                 <div>
@@ -188,13 +188,13 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
           </div>
         </div>
 
-        {/* Show logistics and budget fields relevant to the selected category. */}
-        <div className="bg-[#FFFBF8] p-3.5 sm:p-4 rounded-2xl border border-orange-100/80 shadow-xs">
-          <p className="text-[10.5px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2.5">
+        {/* Logistics & Budget */}
+        <div className="bg-[#FFFBF8] p-3 sm:p-3.5 rounded-2xl border border-orange-100/80 shadow-xs">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-[#8E95A2] mb-2">
             Logistics & Budget
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-3 text-xs sm:text-[13px]">
             <div>
               <span className="text-[#555A64]">Estimated Budget:</span>{" "}
               <span className="font-semibold text-[#1E2024]">
@@ -284,13 +284,13 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
         </div>
       </div>
 
-      {/* Allow the user to return to the previous step or submit the requirement. */}
-      <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-orange-100/80">
+      {/* Sticky Bottom Action Buttons */}
+      <div className="sticky bottom-0 bg-white/95 backdrop-blur-xs flex items-center justify-between pt-3 border-t border-orange-100/80 mt-auto">
         <button
           type="button"
           onClick={onBack}
           disabled={isSubmitting}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-orange-200 text-[#555A64] font-semibold text-xs sm:text-sm hover:bg-[#FFF7F2] hover:text-[#fa5d32] transition disabled:opacity-50 cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-orange-200 text-[#555A64] font-semibold text-xs sm:text-sm hover:bg-[#FFF7F2] hover:text-[#fa5d32] transition disabled:opacity-50 cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
@@ -300,7 +300,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
           type="button"
           onClick={onSubmit}
           disabled={isSubmitting}
-          className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl bg-[#fa5d32] text-white font-semibold text-xs sm:text-sm hover:bg-[#e65027] transition shadow-xs active:scale-95 disabled:opacity-50 cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-[#fa5d32] text-white font-semibold text-xs sm:text-sm hover:bg-[#e65027] transition shadow-xs active:scale-95 disabled:opacity-50 cursor-pointer"
         >
           {isSubmitting ? (
             <>
