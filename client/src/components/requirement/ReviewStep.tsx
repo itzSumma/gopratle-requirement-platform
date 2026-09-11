@@ -198,7 +198,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
             <div>
               <span className="text-[#555A64]">Estimated Budget:</span>{" "}
               <span className="font-semibold text-[#1E2024]">
-                {logisticsDetails?.budget ? `${logisticsDetails.budget}` : "Not specified"}
+                {logisticsDetails?.budget ? `₹ ${Number(logisticsDetails.budget).toLocaleString('en-IN')}` : "Not specified"}
               </span>
             </div>
 

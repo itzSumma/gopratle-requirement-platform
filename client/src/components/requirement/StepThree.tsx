@@ -151,7 +151,7 @@ export const StepThree: React.FC<StepThreeProps> = ({
 
             <div>
               <label className="block text-[11px] sm:text-xs font-semibold text-[#505768] mb-1">
-                Estimated Budget (BDT) <span className="text-[#fa5d32]">*</span>
+                Estimated Budget (₹ / INR) <span className="text-[#fa5d32]">*</span>
               </label>
               <input
                 type="number"
@@ -213,7 +213,7 @@ export const StepThree: React.FC<StepThreeProps> = ({
 
             <div>
               <label className="block text-[11px] sm:text-xs font-semibold text-[#505768] mb-1">
-                Estimated Planning Budget (BDT) <span className="text-[#fa5d32]">*</span>
+                Estimated Planning Budget (₹ / INR) <span className="text-[#fa5d32]">*</span>
               </label>
               <input
                 type="number"
@@ -298,7 +298,7 @@ export const StepThree: React.FC<StepThreeProps> = ({
 
             <div>
               <label className="block text-[11px] sm:text-xs font-semibold text-[#505768] mb-1">
-                Budget for Crew (BDT) <span className="text-[#fa5d32]">*</span>
+                Budget for Crew (₹ / INR) <span className="text-[#fa5d32]">*</span>
               </label>
               <input
                 type="number"
